@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Header from './Header';
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0,0.9);
     box-sizing: border-box;
+    font-size: 10px; // 62.5%
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -54,13 +55,11 @@ export default function Page({ children }) {
     <div>
       <GlobalStyles />
       <Header />
-      <InnerStyles>
-        {children}
-      </InnerStyles>
+      <InnerStyles>{children}</InnerStyles>
     </div>
-  )
+  );
 }
 
 Page.propTypes = {
-  children: PropTypes.any
-}
+  children: PropTypes.any,
+};
