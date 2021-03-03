@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Nav from './Nav'
-import styled from 'styled-components'
+import Link from 'next/link';
+import styled from 'styled-components';
+import Nav from './Nav';
 
 const Logo = styled.h1`
   font-size: 4rem;
@@ -19,11 +19,11 @@ const Logo = styled.h1`
 
 const HeaderStyles = styled.header`
   .bar {
-      border-bottom: 10px solid var(--black, black);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      justify-content: space-between;
-      align-items: center;
+    border-bottom: 10px solid var(--black, black);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: stretch;
   }
 
   .sub-bar {
@@ -33,19 +33,18 @@ const HeaderStyles = styled.header`
   }
 `;
 
-
 export default function Header() {
   return (
     <HeaderStyles>
-      <div className='bar'>
+      <div className="bar">
         <Logo>
-          <Link href='/'>Sick Fits</Link>
+          <Link href="/">Sick Fits</Link>
         </Logo>
       </div>
-      <div className='sub-bar'>
+      <div className="sub-bar">
         <p>Search bar</p>
       </div>
       <Nav />
     </HeaderStyles>
-  )
+  );
 }
