@@ -3,6 +3,8 @@ import Form from './styles/Form';
 import { useMutation } from '@apollo/client';
 import DisplayError from './ErrorMessage';
 import { CREATE_PRODUCT } from '../graphql/mutations.ts';
+import { ALL_PRODUCTS } from '../graphql/queries.ts';
+import Router from 'next/router';
 
 export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
@@ -16,6 +18,7 @@ export default function CreateProduct() {
     CREATE_PRODUCT,
     {
       variables: inputs,
+      refetchQueries: [{ query: ALL_PRODUCTS }],
     }
   );
 
@@ -25,6 +28,9 @@ export default function CreateProduct() {
         e.preventDefault();
         await createProduct();
         clearForm();
+        Router.push({
+          pathname: `/product/${data.createProduct.id}`,
+        });
       }}
     >
       <DisplayError error={error} />
