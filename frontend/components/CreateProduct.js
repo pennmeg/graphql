@@ -26,10 +26,14 @@ export default function CreateProduct() {
     <Form
       onSubmit={async (e) => {
         e.preventDefault();
+        console.log('---- await');
         await createProduct();
+        console.log('---- product', data);
+
         clearForm();
         Router.push({
           pathname: `/product/${data.createProduct.id}`,
+          query: { id: data.createProduct.id },
         });
       }}
     >

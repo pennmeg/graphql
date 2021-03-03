@@ -10,7 +10,9 @@ export default function Product({ product }) {
       {/* TODO: Fix images */}
       <img src={product?.photo?.img?.publicUrlTransformed} alt={product.name} />
       <Title>
-        <Link href={`/product/${product.id}`}>{product.name}</Link>
+        <Link href="/product/[id]" as={`/product/${product.id}`}>
+          {product.name}
+        </Link>
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
