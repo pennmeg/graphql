@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Header from './Header';
 import styled, { createGlobalStyle } from 'styled-components';
+import Header from './header/Header';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
